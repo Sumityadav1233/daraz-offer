@@ -41,9 +41,9 @@ app.get('/api-status', (req, res) => {
   res.json({ message: 'Daraz Promotion API is running' });
 });
 
-// For any other request, send back index.html (SPA support)
-app.get('/:any*', (req, res, next) => {
-  if (req.path.startsWith('/api')) return next();
+// Catch-all middleware for SPA support (send back index.html for non-API routes)
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api') || req.path.startsWith('/api-status')) return next();
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
