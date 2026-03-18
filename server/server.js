@@ -42,7 +42,7 @@ app.get('/api-status', (req, res) => {
 });
 
 // For any other request, send back index.html (SPA support)
-app.get('*', (req, res, next) => {
+app.get('(.*)', (req, res, next) => {
   if (req.path.startsWith('/api')) return next();
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
