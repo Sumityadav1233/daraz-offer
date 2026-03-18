@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-daraz-orange: #f85606;
+  --color-daraz-dark: #1a1a1a;
+}
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #f4f4f4;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  @apply bg-gray-50 text-gray-900;
+}
+
+.spin-wheel-container {
+  box-shadow: 0 0 80px rgba(248, 86, 6, 0.15);
+}
+
+.glow-orange {
+  box-shadow: 0 0 20px rgba(248, 86, 6, 0.5);
+}
+
+.glow-orange:hover {
+  box-shadow: 0 0 30px rgba(248, 86, 6, 0.8);
+}

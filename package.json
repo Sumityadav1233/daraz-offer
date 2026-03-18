@@ -1,0 +1,19 @@
+{
+  "name": "daraz-spin-offer",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "dev:server": "cd server && node server.js",
+    "dev:client": "cd client && npm run dev",
+    "install:all": "cd client && npm install && cd ../server && npm install"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "json2csv": "^6.0.0-alpha.2",
+    "morgan": "^1.10.1"
+  }
+}
