@@ -7,7 +7,7 @@ const { Parser } = require('json2csv');
 const path = require('path');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Database Setup
 const db = new Database(path.join(__dirname, 'data.db'));
@@ -42,7 +42,7 @@ app.get('/api-status', (req, res) => {
 });
 
 // For any other request, send back index.html (SPA support)
-app.get('(.*)', (req, res, next) => {
+app.get('/:any*', (req, res, next) => {
   if (req.path.startsWith('/api')) return next();
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
