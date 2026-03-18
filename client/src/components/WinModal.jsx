@@ -32,7 +32,7 @@ const WinModal = ({ result, onClose }) => {
               
               <div className="bg-gray-50 rounded-2xl p-6 mb-6">
                 <img 
-                  src={`/src/assets/${result.id === 1 ? 'lipstick' : result.id === 3 ? 'face_cream' : result.id === 5 ? 'perfume' : 'face_wash'}.png`} 
+                  src={result.image} 
                   alt={result.label}
                   className="w-32 h-32 mx-auto object-contain mb-4 drop-shadow-lg"
                 />

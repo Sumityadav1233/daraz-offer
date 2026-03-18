@@ -80,6 +80,8 @@ const ClaimForm = () => {
                   required
                   type="tel"
                   placeholder="98XXXXXXXX"
+                  pattern="[9][0-9]{9}"
+                  title="Please enter a valid 10-digit Nepal phone number starting with 9"
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#f85606] outline-none"
                   value={formData.phoneNumber}
                   onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
@@ -137,12 +139,15 @@ const ClaimForm = () => {
                 className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-orange-50 file:text-[#f85606] hover:file:bg-orange-100"
                 onChange={(e) => {
                   const file = e.target.files[0];
-                  if (file) {
+                  if (file && file.type.startsWith('image/')) {
                     const reader = new FileReader();
                     reader.onloadend = () => {
                       setFormData({ ...formData, photo: reader.result });
                     };
                     reader.readAsDataURL(file);
+                  } else if (file) {
+                    alert('Please select a valid image file.');
+                    e.target.value = null;
                   }
                 }}
               />

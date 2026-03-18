@@ -44,10 +44,15 @@ const EmailVerification = () => {
         `*Chowk:* ${claimData.chowk}\n` +
         `*Address Details:* ${claimData.address}`;
 
-      const whatsappUrl = `https://wa.me/9808439617?text=${encodeURIComponent(whatsappMsg)}`;
+      const whatsappUrl = `https://wa.me/9779808439617?text=${encodeURIComponent(whatsappMsg)}`;
 
-      window.open(whatsappUrl, '_blank');
-      navigate('/confirmation');
+      // Redirect to WhatsApp - use location.assign for better mobile compatibility
+      window.location.assign(whatsappUrl);
+      
+      // Delay navigation to confirmation to allow WhatsApp to open
+      setTimeout(() => {
+        navigate('/confirmation');
+      }, 500);
 
     } catch (err) {
       console.error(err);
